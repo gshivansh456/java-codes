@@ -1,20 +1,14 @@
-public class thread{
-    public static void main(String[] args) {
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 1; i <= 5; i++) {
-                    System.out.println(i);
-                    try {
-                        Thread.sleep(500); // Pause for 500 milliseconds
-                    } catch (InterruptedException e) {
-                        System.out.println("Thread interrupted: " + e.getMessage());
-                    }
-                }
-            }
-        };
+interface Sayable {
+    String say(String mes);
+}
 
-        Thread thread = new Thread(runnable);
-        thread.start();
+public class string {
+    public static void main(String[] args) {
+        // Implementing Sayable interface using lambda expression
+        Sayable sayable = (mes) -> "Good"+ mes;
+
+        // Calling the say method
+        String greeting = sayable.say("Morning");
+        System.out.println(greeting);
     }
 }
