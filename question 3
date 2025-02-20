@@ -1,0 +1,24 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class cg {
+    public static void main(String[] args) {
+        String input = "This is test string. This string is for testing";
+
+        String[] words = input.toLowerCase().replace(".", "").split(" ");
+
+        Map<String, Integer> wordCount = new HashMap<>();
+
+        for (String word : words) {
+            if (wordCount.containsKey(word)) {
+                wordCount.put(word, wordCount.get(word) + 1);
+            } else {
+                wordCount.put(word, 1);
+            }
+        }
+
+        for (String key : wordCount.keySet()) {
+            System.out.println(key + ": " + wordCount.get(key));
+        }
+    }
+}
